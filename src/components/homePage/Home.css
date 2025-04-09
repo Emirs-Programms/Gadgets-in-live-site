@@ -1,0 +1,155 @@
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.historical-section {
+  display: flex;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.historical-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.section-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-image {
+  flex: 1;
+  min-height: 300px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+h2 {
+  color: #2dd4bf;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+p {
+  line-height: 1.6;
+  color: #495057;
+  transition: color 0.3s ease;
+}
+
+/* Dark theme styles */
+.dark-theme {
+  background-color: #1a1a2e;
+  color: #e6e6e6;
+}
+
+.dark-theme .historical-section {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .section-content {
+  background-color: #16213e;
+}
+
+.dark-theme .section-image {
+  background-color: #0f3460;
+}
+
+.dark-theme h2 {
+  color: #4ecca3;
+}
+
+.dark-theme p {
+  color: #e6e6e6;
+}
+
+/* Расширенные адаптивные стили */
+@media (max-width: 1024px) {
+  .home {
+    padding: 1.5rem;
+  }
+  
+  .section-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .historical-section,
+  .historical-section:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .section-image {
+    min-height: 200px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 1rem;
+  }
+  
+  .historical-section {
+    margin-bottom: 2rem;
+  }
+  
+  .section-content {
+    padding: 1.25rem;
+  }
+  
+  .section-image {
+    min-height: 180px;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 320px) {
+  .home {
+    padding: 0.75rem;
+  }
+  
+  .section-content {
+    padding: 1rem;
+  }
+  
+  .section-image {
+    min-height: 150px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+}
