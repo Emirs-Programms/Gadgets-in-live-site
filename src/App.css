@@ -1,17 +1,120 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-footer{
+body {
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+footer {
   background-color: #97cafd;
   color: #fff;
   padding: 10px;
   text-align: center;
+  position: relative;
+  bottom: 0;
+  transition: background-color 0.3s ease;
 }
 
-p{
+body.dark-theme footer {
+  background-color: #1e3a5f;
+}
+
+p {
   text-align: center;
   font-family: Arial;
+  transition: color 0.3s ease;
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #e6e6e6;
+}
+
+body.dark-theme p {
+  color: #e6e6e6;
+}
+
+/* Additional global dark theme styles */
+body.dark-theme a {
+  color: #8a9cff;
+}
+
+body.dark-theme button {
+  background-color: #2a2a3a;
+  color: #e6e6e6;
+  border-color: #444;
+}
+
+body.dark-theme input, 
+body.dark-theme textarea, 
+body.dark-theme select {
+  background-color: #2a2a3a;
+  color: #e6e6e6;
+  border-color: #444;
+}
+
+body.dark-theme input::placeholder, 
+body.dark-theme textarea::placeholder {
+  color: #aaa;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body.dark-theme ::-webkit-scrollbar-track {
+  background: #2a2a3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-bottom: 1rem;
+  }
 }

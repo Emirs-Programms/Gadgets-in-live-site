@@ -1,85 +1,93 @@
 .footer {
-    background-color: #2dd4bf;
-    color: #fff;
-    padding: 20px 0;
-    width: 100%;
-    margin-top: auto;
-  }
+  background-color: #2dd4bf;
+  color: #fff;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
+  transition: background-color 0.3s ease;
+}
 
-  .footer p{
-    color: #fff;
-  }
-  
+.dark-theme .footer {
+  background-color: #1a7a6f;
+}
+
+.footer p {
+  color: #fff;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.footer-logo img {
+  width: 200%;
+}
+
+.footer-text {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Responsive design */
+@media screen and (min-width: 768px) {
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
   
   .footer-logo {
-    margin-bottom: 15px;
-  }
-  
-  .footer-logo img {
-    width: 200%;
-
+    margin-bottom: 0;
   }
   
   .footer-text {
-    margin-bottom: 10px;
-    font-size: 16px;
+    margin-bottom: 0;
     color: #fff;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer-logo img {
+    height: 40px;
+  }
+  
+  .footer-text {
+    font-size: 14px;
   }
   
   .footer-copyright {
-    font-size: 14px;
-    color: #fff;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 15px 0;
   }
   
-  /* Responsive design */
-  @media screen and (min-width: 768px) {
-    .footer-container {
-      flex-direction: row;
-      justify-content: space-between;
-      text-align: left;
-    }
-    
-    .footer-logo {
-      margin-bottom: 0;
-    }
-    
-    .footer-text {
-      margin-bottom: 0;
-      color: #fff;
-    }
+  .footer-logo img {
+    height: 30px;
   }
-  
-  @media screen and (max-width: 767px) {
-    .footer-logo img {
-      height: 40px;
-    }
-    
-    .footer-text {
-      font-size: 14px;
-    }
-    
-    .footer-copyright {
-      font-size: 12px;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .footer {
-      padding: 15px 0;
-    }
-    
-    .footer-logo img {
-      height: 30px;
-    }
-  }
-  
+}

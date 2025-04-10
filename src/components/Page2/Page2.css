@@ -5,6 +5,7 @@
   font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .gadgets-header {
@@ -14,6 +15,7 @@
   background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
   color: white;
   border-radius: 12px;
+  transition: background 0.3s ease;
 }
 
 .gadgets-header h1 {
@@ -25,6 +27,7 @@
 .gadgets-header p {
   font-size: 1.2rem;
   opacity: 0.9;
+  color: white;
 }
 
 .tabs-container {
@@ -33,12 +36,14 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 30px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tabs {
   display: flex;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .tab {
@@ -80,6 +85,7 @@
   color: #6a82fb;
   margin-bottom: 20px;
   font-size: 1.8rem;
+  transition: color 0.3s ease;
 }
 
 .fact-card {
@@ -87,7 +93,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .fact-card:hover {
@@ -105,12 +111,14 @@
   padding: 15px 15px 5px;
   color: #6a82fb;
   font-size: 1.3rem;
+  transition: color 0.3s ease;
 }
 
 .fact-card p {
   padding: 0 15px 15px;
   font-size: 0.95rem;
   line-height: 1.5;
+  transition: color 0.3s ease;
 }
 
 .fun-fact {
@@ -120,58 +128,79 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 .fun-fact h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: white;
 }
 
 .fun-fact p {
   font-size: 1.1rem;
   line-height: 1.6;
+  color: white;
 }
 
-/* Dark theme styles */
-.dark-theme {
-  background-color: #222;
-  color: #f0f0f0;
+/* Dark theme styles - improved */
+.dark-theme .gadgets-page {
+  background-color: #121212;
+  color: #e6e6e6;
+}
+
+.dark-theme .gadgets-header {
+  background: linear-gradient(135deg, #3a4a8c 0%, #a03a52 100%);
 }
 
 .dark-theme .tabs-container {
-  background-color: #333;
+  background-color: #1e1e2e;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme .tabs {
-  background-color: #444;
-  border-bottom: 1px solid #555;
+  background-color: #2a2a3a;
+  border-bottom: 1px solid #444;
 }
 
 .dark-theme .tab {
-  color: #ccc;
+  color: #bbb;
 }
 
 .dark-theme .tab:hover {
-  background-color: #555;
+  background-color: #3a3a4a;
 }
 
 .dark-theme .tab.active {
-  background-color: #333;
-  color: #fc5c7d;
-}
-
-.dark-theme .fact-card {
-  background-color: #333;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-
-.dark-theme .fact-card h3 {
-  color: #fc5c7d;
+  background-color: #1e1e2e;
+  color: #8a9cff;
+  border-bottom: 3px solid #ff7a94;
 }
 
 .dark-theme .facts-container h2 {
-  color: #fc5c7d;
+  color: #8a9cff;
+}
+
+.dark-theme .fact-card {
+  background-color: #2a2a3a;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .fact-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .fact-card h3 {
+  color: #8a9cff;
+}
+
+.dark-theme .fact-card p {
+  color: #ccc;
+}
+
+.dark-theme .fun-fact {
+  background: linear-gradient(135deg, #a03a52 0%, #3a4a8c 100%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -183,9 +212,18 @@
     border-bottom: 1px solid #ddd;
   }
   
+  .dark-theme .tab {
+    border-bottom: 1px solid #444;
+  }
+  
   .tab.active {
     border-bottom: 1px solid #ddd;
     border-left: 3px solid #fc5c7d;
+  }
+  
+  .dark-theme .tab.active {
+    border-bottom: 1px solid #444;
+    border-left: 3px solid #ff7a94;
   }
   
   .gadgets-header h1 {

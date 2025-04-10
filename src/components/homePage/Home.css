@@ -32,6 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .section-image img {
@@ -52,10 +53,9 @@ p {
   transition: color 0.3s ease;
 }
 
-/* Dark theme styles */
-.dark-theme {
-  background-color: #1a1a2e;
-  color: #e6e6e6;
+/* Dark theme styles - improved */
+.dark-theme .home {
+  background-color: #121212;
 }
 
 .dark-theme .historical-section {
@@ -63,11 +63,11 @@ p {
 }
 
 .dark-theme .section-content {
-  background-color: #16213e;
+  background-color: #1e1e2e;
 }
 
 .dark-theme .section-image {
-  background-color: #0f3460;
+  background-color: #2a2a3a;
 }
 
 .dark-theme h2 {

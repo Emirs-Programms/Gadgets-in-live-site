@@ -5,10 +5,25 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease;
 }
 
-.header-logo img {
-  width: 120px;
+.dark-theme .header {
+  background-color: #1a7a6f;
+}
+
+.header-logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.header-logo a p {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 /* Главное меню */
@@ -35,6 +50,11 @@
   border-radius: 6px;
 }
 
+.dark-theme .header-nav a:hover {
+  background-color: #2a2a3a;
+  color: #2dd4bf;
+}
+
 /* Контролы */
 .header-controls {
   display: flex;
@@ -48,6 +68,12 @@
   color: black;
   border-radius: 4px;
   padding: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-theme .language-selector select {
+  background-color: #2a2a3a;
+  color: #e6e6e6;
 }
 
 .theme-toggle {
@@ -55,12 +81,15 @@
   padding: 6px;
   border-radius: 50%;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dark-theme .theme-toggle {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Адаптация для телефона */
 @media (max-width: 768px) {
-
-
   .header {
     flex-direction: column;
     align-items: center;
@@ -92,11 +121,25 @@
   transition: all 0.2s ease-in-out;
 }
 
+.dark-theme .language-selector select {
+  background-color: #3a9e4a;
+  color: #e6e6e6;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
 .language-selector select:hover {
   background-color: #50ff76;
+}
+
+.dark-theme .language-selector select:hover {
+  background-color: #4ab85a;
 }
 
 .language-selector select:focus {
   outline: none;
   box-shadow: 0 0 0 2px #14b8a6;
+}
+
+.dark-theme .language-selector select:focus {
+  box-shadow: 0 0 0 2px #0d7a70;
 }

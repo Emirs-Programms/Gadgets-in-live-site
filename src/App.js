@@ -1,68 +1,66 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/header/Header';
-import Home from './components/homePage/Home';
-import Page2 from './components/Page2/Page2';
-import Page3 from './components/Us/Us';
-import Quiz from './components/quiz/Quiz';
 import './App.css';
-import Footer from './components/Footer/Footer';
 
-// Переводы для футера
-const footerTranslations = {
-  ru: {
-    copyright: "Made by Emirchik, Robiya, Akbii and Alimana"
-  },
-  en: {
-    copyright: "Made by Emirchik, Robiya, Akbii and Alimana"
-  },
-  ky: {
-    copyright: "Made by Emirchik, Robiya, Akbii and Alimana"
-  }
-};
+// Components
+import Header from './components/header/Header';
+import Footer from './components/Footer/Footer';
+import Quiz from './components/quiz/Quiz';
+import Page2 from './components/Page2/Page2';
+import Us from './components/Us/Us';
+import Home from './components/homePage/Home';
 
 function App() {
-  // Initialize language from localStorage or default to 'ru'
-  const [language, setLanguage] = useState(
-    localStorage.getItem('language') || 'ru'
-  );
-  
-  // Initialize dark mode from localStorage or default to false
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem('darkMode') === 'true'
-  );
-  
-  // Save language preference to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
-  
-  // Save dark mode preference to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem('darkMode', darkMode);
-  }, [darkMode]);
+  const [language, setLanguage] = useState('ru');
+  const [darkMode, setDarkMode] = useState(false);
 
-  // Получаем переводы для текущего языка
-  const t = footerTranslations[language] || footerTranslations.ru;
+  useEffect(() => {
+    // Check if user has a saved preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    const savedLanguage = localStorage.getItem('language');
+    
+    if (savedDarkMode === null) {
+      // If no saved preference, check system preference
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setDarkMode(prefersDarkMode);
+      localStorage.setItem('darkMode', prefersDarkMode);
+    } else {
+      setDarkMode(savedDarkMode === 'true');
+    }
+
+    // Set saved language if available
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  // Apply dark mode class to body
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [darkMode]);
 
   return (
     <Router>
-      <div className={`app ${darkMode ? 'dark-theme' : ''}`}>
+      <div className="app-container">
         <Header 
           language={language} 
           setLanguage={setLanguage} 
           darkMode={darkMode} 
           setDarkMode={setDarkMode} 
         />
-        <main>
+        <main className="main-content">
           <Routes>
-            <Route path="/homePage" element={<Home language={language} darkMode={darkMode} />} />
-            <Route path="/page2" element={<Page2 language={language} darkMode={darkMode} />} />
-            <Route path="/Us" element={<Page3 language={language} darkMode={darkMode} />} />
-            <Route path='/' element={<Quiz language={language} darkMode={darkMode} />} />
+            <Route path="/" element={<Quiz language={language} />} />
+            <Route path="/Page2" element={<Page2 language={language} />} />
+            <Route path="/Us" element={<Us language={language} />} />
+            <Route path="/homePage" element={<Home language={language} />} />
           </Routes>
         </main>
-          <Footer/>
+        <Footer language={language} />
       </div>
     </Router>
   );
